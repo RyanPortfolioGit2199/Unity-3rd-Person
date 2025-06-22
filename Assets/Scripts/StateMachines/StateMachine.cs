@@ -15,7 +15,7 @@ public abstract class StateMachine : MonoBehaviour // we are keeping the monobeh
     }
 
     // Update is called once per frame
-    private void Update()
+    protected virtual void Update() // Had to make this one virtual in order to run this Update function in other scripts that inherit this one
     {
         currentState?.Tick(Time.deltaTime); // The ? is a short hand to use instead of writing out a if statement to check if something is null or not; It is called a null conditional operator.
     }
