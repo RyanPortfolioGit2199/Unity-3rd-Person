@@ -9,27 +9,27 @@ public class PlayerTestState : PlayerBaseState
 
     public override void Enter()
     {
-        stateMachine.InputReader.JumpEvent += OnJump; // when pressing spacebar(from InputReader) Enter Player Test State
+        
         Debug.Log("Enter");
     }
 
     public override void Tick(float deltaTime)
     {
-        secondsLeft += deltaTime;
-
-        Debug.Log(secondsLeft);
+        Vector3 movement = new Vector3();
+        movement.x = stateMachine.InputReader.MovementValue.x;
+        movement.y = 0;
+        movement.z = stateMachine.InputReader.MovementValue.y;
+        stateMachine.transform.Translate(movement * deltaTime);
+        Debug.Log(stateMachine.InputReader.MovementValue); // Display the Vector2 based on the Movement keys I am pressing and holding.
     }
 
     public override void Exit()
     {
         Debug.Log("Exit");
-        stateMachine.InputReader.JumpEvent -= OnJump; // When pressing spacebar again exit PlayerTestState
+        
     }
 
-    private void OnJump()
-    {
-        stateMachine.SwitchState(new PlayerTestState(stateMachine));
-    }
+
 
 
 }

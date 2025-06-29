@@ -5,7 +5,10 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class InputReader : MonoBehaviour, Controls.IPlayerActions  // On this line we have this class(Input Reader) and it is inheriting MonoBehaviour(since you can only inherit 1 class) after a comma is an interface. Basically a contract with the input system that says we promise in this class to have methods called and whatever they maybe.
-{    // Using events to let the state know we jumped, basically link this class to the state.
+{
+    public Vector2 MovementValue {  get; private set; }
+       
+    // Using events to let the state know we jumped, basically link this class to the state.
     public event Action JumpEvent; 
     public event Action DodgeEvent;
     // Events are things that are triggered when they happened as opposed to something you pull, you check every single frame
@@ -36,5 +39,10 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions  // On this li
         if(!context.performed) { return; }
 
         DodgeEvent?.Invoke();
+    }
+
+    public void OnMove(InputAction.CallbackContext context)
+    {
+        MovementValue = context.ReadValue<Vector2>();// When Move keys are held make the Vector2 values equal MovementValue
     }
 }
