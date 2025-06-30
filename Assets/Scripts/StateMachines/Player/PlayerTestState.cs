@@ -19,8 +19,11 @@ public class PlayerTestState : PlayerBaseState
         movement.x = stateMachine.InputReader.MovementValue.x;
         movement.y = 0;
         movement.z = stateMachine.InputReader.MovementValue.y;
-        stateMachine.transform.Translate(movement * deltaTime);
-        Debug.Log(stateMachine.InputReader.MovementValue); // Display the Vector2 based on the Movement keys I am pressing and holding.
+        stateMachine.Controller.Move(movement * stateMachine.FreeLookMovementSpeed * deltaTime );
+
+        if (stateMachine.InputReader.MovementValue == Vector2.zero) { return; } //If the player isnt moving dont do any calculations.
+
+        stateMachine.transform.rotation = Quaternion.LookRotation(movement);// Rotate the player based on the Move Keys have been pressed
     }
 
     public override void Exit()

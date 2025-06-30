@@ -79,6 +79,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 323596516377457622}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 92bdbff6b18106841bf7e4bfaff5871d,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6696830421540617314}
   m_SourcePrefab: {fileID: 100100000, guid: 92bdbff6b18106841bf7e4bfaff5871d, type: 3}
 --- !u!1 &634040904341295555 stripped
 GameObject:
@@ -111,6 +115,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <InputReader>k__BackingField: {fileID: 8999925965079190290}
+  <Controller>k__BackingField: {fileID: 6696830421540617314}
+  <FreeLookMovementSpeed>k__BackingField: 6
 --- !u!95 &323596516377457622
 Animator:
   serializedVersion: 5
@@ -132,3 +138,29 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!143 &6696830421540617314
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 634040904341295555}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Height: 1.75
+  m_Radius: 0.25
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.025
+  m_MinMoveDistance: 0
+  m_Center: {x: 0, y: 0.875, z: 0}
