@@ -10,6 +10,8 @@ public class PlayerStateMachine : StateMachine // The class on the right of the 
     [field: SerializeField] public CharacterController Controller { get; private set; }
     [field: SerializeField] public float FreeLookMovementSpeed { get; private set; }
 
+    [field: SerializeField] public Animator Animator { get; private set; }
+
     // Start is called before the first frame update
     void Start()
     {
