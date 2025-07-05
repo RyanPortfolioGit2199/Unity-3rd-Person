@@ -45,4 +45,9 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions  // On this li
     {
         MovementValue = context.ReadValue<Vector2>();// When Move keys are held make the Vector2 values equal MovementValue
     }
+
+    public void OnLook(InputAction.CallbackContext context)
+    {
+        
+    }
 }
