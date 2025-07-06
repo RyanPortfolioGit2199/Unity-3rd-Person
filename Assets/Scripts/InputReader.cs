@@ -11,6 +11,7 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions  // On this li
     // Using events to let the state know we jumped, basically link this class to the state.
     public event Action JumpEvent; 
     public event Action DodgeEvent;
+    public event Action TargetLockEvent;
     // Events are things that are triggered when they happened as opposed to something you pull, you check every single frame
 
     private Controls controls;
@@ -49,5 +50,12 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions  // On this li
     public void OnLook(InputAction.CallbackContext context)
     {
         
+    }
+
+    public void OnTargetLock(InputAction.CallbackContext context)
+    {
+        if (!context.performed) { return; }
+
+        TargetLockEvent?.Invoke();
     }
 }

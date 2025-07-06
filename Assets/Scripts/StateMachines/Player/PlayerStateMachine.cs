@@ -16,6 +16,8 @@ public class PlayerStateMachine : StateMachine // The class on the right of the 
 
     public Transform MainCameraTransform;
 
+    public bool isTargeting;
+
     // Start is called before the first frame update
     void Start()
     {
