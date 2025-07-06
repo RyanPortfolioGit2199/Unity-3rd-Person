@@ -12,9 +12,12 @@ public class PlayerStateMachine : StateMachine // The class on the right of the 
 
     [field: SerializeField] public Animator Animator { get; private set; }
 
+    public Transform MainCameraTransform;
+
     // Start is called before the first frame update
     void Start()
     {
+        MainCameraTransform = Camera.main.transform; // Gets the Position and Rotation of the object with the MainCamera Tag, and stores that in a variable to be used in other player states
         SwitchState(new PlayerTestState(this)); // When starting the game change to the PlayerTestState
     }
 
