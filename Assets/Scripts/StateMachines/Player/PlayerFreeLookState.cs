@@ -47,7 +47,7 @@ public class PlayerFreeLookState : PlayerBaseState
 
     private void OnTarget()
     {
-        if (stateMachine.isTargeting == true) { return; }
+        if (!stateMachine.Targeter.SelectTarget() && stateMachine.isTargeting) { return; }
         stateMachine.SwitchState(new PlayerTargetingState(stateMachine));
 
     }

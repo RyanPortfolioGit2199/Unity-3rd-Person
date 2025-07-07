@@ -13,6 +13,7 @@ public class PlayerStateMachine : StateMachine // The class on the right of the 
     [field: SerializeField] public Animator Animator { get; private set; }
 
     [field: SerializeField] public float RotationDamping { get; private set; }
+    [field: SerializeField] public Targeter Targeter { get; private set; }
 
     public Transform MainCameraTransform;
 
