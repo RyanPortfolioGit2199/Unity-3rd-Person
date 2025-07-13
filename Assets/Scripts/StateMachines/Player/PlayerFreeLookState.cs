@@ -10,12 +10,14 @@ public class PlayerFreeLookState : PlayerBaseState
     private Vector3 CameraZ;
     private Vector3 CameraX;
 
+    private readonly int FreeLookBlendTreeHash = Animator.StringToHash("FreeLook BlendTree");
     private readonly int FreeLookSpeedHash = Animator.StringToHash("FreeLookSpeed"); // Converting FreeLookSpeed string from a string to an integer because strings need more processing power to get reference to compared to integers.
 
     private const float AnimatorDampTime = 0.1f;
 
     public override void Enter()
     {
+        stateMachine.Animator.Play(FreeLookBlendTreeHash);
         stateMachine.InputReader.TargetLockEvent += OnTarget;
         Debug.Log("Enter");
         stateMachine.isTargeting = false;

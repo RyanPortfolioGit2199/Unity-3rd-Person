@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerTargetingState : PlayerBaseState
 {
+    private readonly int TargetingBlendTreeHash = Animator.StringToHash("Targeting BlendTree");
+
     public PlayerTargetingState(PlayerStateMachine stateMachine) : base(stateMachine)
     {
     }
@@ -12,6 +14,7 @@ public class PlayerTargetingState : PlayerBaseState
     {
         stateMachine.isTargeting = true;
         stateMachine.InputReader.TargetLockEvent += OnCancel;
+        stateMachine.Animator.Play(TargetingBlendTreeHash);
     }
 
     public override void Tick(float deltaTime)
